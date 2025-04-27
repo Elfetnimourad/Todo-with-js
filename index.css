@@ -1,0 +1,91 @@
+body{
+    background-color: #121212; 
+   /*background-color: white;*/
+
+    color: white;
+}
+.container{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.todo-style{
+    margin-top: 30px;
+}
+.todo-list{
+    margin-top: 7%;
+}
+.input-styling{
+width: 350px;
+height: 40px;
+border-top-left-radius: 20px;
+border-bottom-left-radius: 20px;
+outline:none;
+}
+.btn-style{
+    width: 40px;
+    height: 46px;
+    /* border-top-left-radius: 10%;
+    border-bottom-left-radius: 10%; */
+   background-color: chocolate;
+   color: white;
+}
+.btn-style:hover {
+    background-color: darkorange;
+}
+
+/* .btn-style::before{
+    content: '';
+    position: relative;
+
+} */
+.input-styling:hover , .input-styling:focus{
+    border: 1px solid goldenrod;
+}
+.div-style{
+    height: 65px;
+    border: 1px solid lightgray; 
+    border-radius:10px;
+    background-color: rgb(92, 92, 99);
+    color: white;
+    display: flex;
+
+}
+.fa-trash{
+    cursor: pointer;
+color: red;
+padding: 10px;
+margin-left: auto;
+
+}
+.fa-pen{
+     cursor: pointer;
+      
+       color: blue;
+        padding: 10px;
+}
+.fa-solid{
+    float: right;
+    margin-top:10px;
+}
+.save-btn{
+    cursor: pointer;
+    color: white;
+    background-color: green;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    text-align: center;
+    margin-top: -1px;
+    margin-bottom: 3px;
+}
+.hidden-element{
+    display:none;
+}
+.div-flex{
+    display: flex;
+    
+}
