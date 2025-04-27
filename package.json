@@ -1,0 +1,23 @@
+{
+  "homepage":"https://Elfetnimourad.github.io/Todo-with-js",
+  "name": "todowithjs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "predeploy":"npm run build",
+    "deploy":"gh-pages -d deploy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Elfetnimourad/Todo-with-js.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Elfetnimourad/Todo-with-js/issues"
+  },
+  "homepage": "https://github.com/Elfetnimourad/Todo-with-js#readme"
+}
