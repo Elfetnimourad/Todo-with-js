@@ -1,7 +1,9 @@
 let input = document.querySelector('input[type="text"]');
 let btn = document.querySelector("button");
 let cl = document.querySelector(".todo-list");
-let arr = [];
+
+let arr = JSON.parse(localStorage.getItem("arr")) || [];
+
 input.onchange = function (e) {
   let text = e.target.value;
   arr.push(text);
@@ -10,11 +12,19 @@ input.onchange = function (e) {
 // input.addEventListener("input", function (e) {
 
 // });
+
 btn.addEventListener("click", function () {
-  if (document.querySelector(".input-styling").value !== "") {
+  localStorage.setItem("arr", JSON.stringify(arr));
+
+  if (
+    document.querySelector(".input-styling").value !== "" &&
+    arr.length !== 0
+  ) {
     let trash = document.createElement("i");
     let edit = document.createElement("i");
     let text = input.value;
+    // add to localStorage
+
     // var myTrash = document.querySelector("i").cloneNode(true);
     let div = document.createElement("div");
     let headList = document.createElement("h2");
@@ -27,7 +37,7 @@ btn.addEventListener("click", function () {
     div.appendChild(edit);
     cl.appendChild(div);
 
-    headList.textContent = text; // Instead of using map
+    headList.textContent = text;
     div.dataset.value = text;
     //Removing
     trash.addEventListener("click", function () {
@@ -38,7 +48,6 @@ btn.addEventListener("click", function () {
     });
     // Editing
     edit.addEventListener("click", function () {
-      let toogle = false;
       //input for Editing
       let inputed = document.createElement("input");
       inputed.classList.add("input-styling");
@@ -110,11 +119,15 @@ btn.addEventListener("click", function () {
       });
     });
 
-    console.log(arr);
     arr.map((e, c) => {
       headList.textContent = e;
     });
-
+    console.log(arr);
     document.querySelector(".input-styling").value = "";
+    return arr;
   }
 });
+window.onload = function (e) {
+  e.preventDefault();
+};
+console.log("for nothing happen", arr);
