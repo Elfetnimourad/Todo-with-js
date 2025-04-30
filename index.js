@@ -16,10 +16,7 @@ input.onchange = function (e) {
 btn.addEventListener("click", function () {
   localStorage.setItem("arr", JSON.stringify(arr));
 
-  if (
-    document.querySelector(".input-styling").value !== "" &&
-    arr.length !== 0
-  ) {
+  if (document.querySelector(".input-styling").value !== "") {
     let trash = document.createElement("i");
     let edit = document.createElement("i");
     let text = input.value;
@@ -127,7 +124,5 @@ btn.addEventListener("click", function () {
     return arr;
   }
 });
-window.onload = function (e) {
-  e.preventDefault();
-};
+
 console.log("for nothing happen", arr);
