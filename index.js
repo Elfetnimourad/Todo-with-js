@@ -2,6 +2,7 @@ let input = document.querySelector('input[type="text"]');
 let btn = document.querySelector("button");
 let cl = document.querySelector(".todo-list");
 let arr = JSON.parse(localStorage.getItem("arr")) || [];
+renderElements();
 
 input.onchange = function (e) {
   let text = e.target.value;
@@ -20,13 +21,14 @@ btn.addEventListener("click", function () {
     // Editing
     arr.push(document.querySelector(".input-styling").value);
 
-    localStorage.setItem("arr", JSON.stringify(arr));
+    // localStorage.setItem("arr", JSON.stringify(arr));
     document.querySelector(".input-styling").value = "";
     renderElements();
   }
 });
 
 function renderElements() {
+  cl.innerHTML = "";
   arr.forEach((text) => {
     let trash = document.createElement("i");
     let edit = document.createElement("i");
@@ -66,6 +68,9 @@ function renderElements() {
       saveBtn.textContent = "Save";
 
       edit.classList.add("hidden-element");
+
+      edit.style.display = "none";
+      trash.style.display = "none";
       trash.classList.add("hidden-element");
       headList.classList.add("hidden-element");
 
@@ -82,7 +87,8 @@ function renderElements() {
 
         inputed.remove();
         saveBtn.remove();
-
+        edit.style.display = "flex";
+        trash.style.display = "flex";
         headList.textContent = updatedText;
         headList.classList.remove("hidden-element");
         edit.classList.remove("hidden-element");
@@ -94,4 +100,3 @@ function renderElements() {
     });
   });
 }
-renderElements();
