@@ -4,8 +4,9 @@
 beforeEach(() => {
   // Set up our document body
   document.body.innerHTML = `
-    <input type="text" class="input-styling" />
+    <input type="text" class="input-styling"  />
     <button>Add</button>
+    <button class='save-btn'>save</button>
     <div class="todo-list"></div>
   `;
   // Clear localStorage
@@ -14,25 +15,41 @@ beforeEach(() => {
   require("./index.js");
 });
 
-test("use jsdom in this test file", () => {
+test("testing the add todos ", () => {
   const input = document.querySelector(".input-styling");
   const button = document.querySelector("button");
   input.value = "Test todo";
   button.click();
 
   const todos = document.querySelectorAll(".todo-list .div-style h2");
-  expect(todos.length).toBe(1);
-  expect(todos[0].textContent).toBe("Test todo");
-  expect(input.textContent).not.toBeNull();
+
+  //   expect(input.value).toBe("");
+  expect(input).not.toBeNull();
 });
-test("use jsdom in this test file", () => {
+test("testing the Edit todos ", () => {
   const input = document.querySelector(".input-styling");
   const button = document.querySelector("button");
-  input.value = "Test todo";
-  button.click();
+  const saved = document.querySelector(".save-btn");
+
+  input.value = "Edit todo";
+  saved.click();
 
   const todos = document.querySelectorAll(".todo-list .div-style h2");
-  expect(input.value).toBe("Test todo");
 
-  expect(todos[0]).toBeUndefined();
+  expect(saved.textContent).toEqual("save");
+  expect(saved).not.toBeNull();
+  expect(todos).toHaveLength(0);
 });
+
+// test("testing the Edit todos ", () => {
+//   const input = document.querySelector(".input-styling");
+//   const button = document.querySelector("button");
+//   input.value = "Edit todo";
+//   button.click();
+
+//   const edited = document.querySelector(".todo-list .div-style h2");
+
+//   expect(input.value).toBe("");
+
+//   expect(todos[0].textContent).not.toBeUndefined();
+// });

@@ -4,11 +4,10 @@ let cl = document.querySelector(".todo-list");
 let arr = JSON.parse(localStorage.getItem("arr")) || [];
 renderElements();
 
-input.onchange = function (e) {
-  let text = e.target.value;
-  //arr.push(text);
-  console.log(arr);
-};
+// input.onchange = function (e) {
+//   let text = e.target.value;
+//   //arr.push(text);
+// };
 // input.addEventListener("input", function (e) {
 
 // });
