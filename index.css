@@ -93,3 +93,8 @@ margin-left: auto;
     display: flex;
     
 }
+@media( max-width:400px ){
+    .input-styling{
+        width: 310px;
+    }
+}
